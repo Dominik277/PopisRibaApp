@@ -2,25 +2,12 @@ package izvjestaji.aplikacija;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
-import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     String[] mainTitle = {"Title 1","Title 2","Title 3","Title 4"};
     String[] subTitle = {"SubTitle 1","SubTitle 2","SubTitle 3","SubTitle 4"};
-
+    Integer [] imageView = {R.drawable.facebook,R.drawable.instagram,R.drawable.viber,R.drawable.wapp};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
