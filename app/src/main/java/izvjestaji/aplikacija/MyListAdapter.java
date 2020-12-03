@@ -32,16 +32,16 @@ public class MyListAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, @Nullable View view, @NonNull ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.my_list,null);
+        View objektListView = inflater.inflate(R.layout.my_list,null);
 
-        TextView titleText = rowView.findViewById(R.id.titleText);
-        TextView subtitleText = rowView.findViewById(R.id.subtitleText);
-        ImageView imageView = rowView.findViewById(R.id.imageView);
+        TextView titleText = objektListView.findViewById(R.id.titleText);
+        TextView subtitleText = objektListView.findViewById(R.id.subtitleText);
+        ImageView imageView = objektListView.findViewById(R.id.imageView);
 
         titleText.setText(mainTitle[position]);
         subtitleText.setText(subTitle[position]);
         imageView.setImageResource(imgid[position]);
 
-        return rowView;
+        return objektListView;
     }
 }

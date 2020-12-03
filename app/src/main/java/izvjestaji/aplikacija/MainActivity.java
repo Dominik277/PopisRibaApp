@@ -5,16 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button;
     ListView listView;
 
     String[] mainTitle = {"Title 1","Title 2","Title 3","Title 4"};
@@ -26,26 +22,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.button);
         listView = findViewById(R.id.listView);
 
-        String [] fruits = new String[]{"Jabuka","Jagoda"};
-        List<String> fruitsList = new ArrayList<String>(Arrays.asList(fruits));
+        MyListAdapter adapter = new MyListAdapter(this,mainTitle,subTitle,imageView);
+        listView = findViewById(R.id.listView);
+        listView.setAdapter(adapter);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
-                (this, android.R.layout.simple_list_item_1,fruitsList);
-        listView.setAdapter(arrayAdapter);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                //fruitsList.add("Tresnja");
-                //fruitsList.add("Visnja");
-                //arrayAdapter.notifyDataSetChanged();
-                showAlertDialog();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position==0){
+                    Toast.makeText(getApplicationContext(),"Place Your First Option Code", Toast.LENGTH_SHORT).show();
+                }else if (position == 1){
+                    Toast.makeText(getApplicationContext(),"Place Your Second Option Code",Toast.LENGTH_SHORT).show();
+                }else if (position == 2){
+                    Toast.makeText(getApplicationContext(),"Place Your Third Option Code",Toast.LENGTH_SHORT).show();
+                }else if (position == 3){
+                    Toast.makeText(getApplicationContext(),"Place Your Forth Option Code",Toast.LENGTH_SHORT).show();
+                }else if (position == 4){
+                    Toast.makeText(getApplicationContext(),"Place Your Fifth Option Code",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
+
+
 
     public void showAlertDialog(){
         new AlertDialog.Builder(MainActivity.this)
