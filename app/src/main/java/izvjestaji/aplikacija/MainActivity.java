@@ -7,11 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     ListView listView;
+
+    String [] datum = {"21.1.","30.1","21.6","31.3"};
+    String [] riba = {"Saran","Amur"};
+    String [] kilaza = {"7,54","9,25","21,54","3,64"};
+    String [] vrijeme = {"11:25","12:46","18:54","19:01"};
+    String [] mamac = {"Boila","Kukuruz","Boila","Boila"};
+    String [] izvjestaj = {"","","",""};
 
     String[] mainTitle = {"Title 1","Title 2","Title 3","Title 4"};
     String[] subTitle = {"SubTitle 1","SubTitle 2","SubTitle 3","SubTitle 4"};
@@ -24,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listView);
 
-        MyListAdapter adapter = new MyListAdapter(this,mainTitle,subTitle,imageView);
+        MyListAdapter adapter = new MyListAdapter(this,datum,riba,kilaza,vrijeme,mamac,izvjestaj);
         listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
 

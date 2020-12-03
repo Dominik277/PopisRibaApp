@@ -7,26 +7,30 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class MyListAdapter extends ArrayAdapter<String> {
 
     private final Activity context;
-    private final String[] mainTitle;
-    private final String[] subTitle;
-    private final Integer[] imgid;
+    private final String[] datum;
+    private final String[] riba;
+    private final String[] kilaza;
+    private final String[] vrijeme;
+    private final String[] mamac;
+    private final String[] izvjestaj;
 
-
-    public MyListAdapter(Activity context, String[] mainTitle, String[] subTitle, Integer[] imgid) {
-        super(context,R.layout.my_list,mainTitle);
-
+    public MyListAdapter(Activity context, String[] datum, String[] riba, String[] kilaza, String[] vrijeme, String[] mamac, String[] izvjestaj) {
+        super(context,R.layout.my_list,datum);
         this.context = context;
-        this.mainTitle = mainTitle;
-        this.subTitle = subTitle;
-        this.imgid=imgid;
+        this.datum = datum;
+        this.riba = riba;
+        this.kilaza = kilaza;
+        this.vrijeme = vrijeme;
+        this.mamac = mamac;
+        this.izvjestaj = izvjestaj;
     }
+
 
     @NonNull
     @Override
@@ -34,7 +38,7 @@ public class MyListAdapter extends ArrayAdapter<String> {
         LayoutInflater inflater = context.getLayoutInflater();
         View objektListView = inflater.inflate(R.layout.my_list,null);
 
-        TextView titleText = objektListView.findViewById(R.id.titleText);
+        TextView datum = objektListView.findViewById(R.id.datum);
         TextView subtitleText = objektListView.findViewById(R.id.subtitleText);
         ImageView imageView = objektListView.findViewById(R.id.imageView);
 
