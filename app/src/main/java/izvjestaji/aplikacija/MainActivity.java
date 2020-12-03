@@ -1,9 +1,11 @@
 package izvjestaji.aplikacija;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -26,13 +28,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     Button button;
-    Context context;
-    CardView cardView;
-    ViewGroup.LayoutParams layoutParams;
-    TextView textView;
-    RelativeLayout relativeLayout;
-    FloatingActionButton floatingActionButton;
     ListView listView;
+
+    String[] mainTitle = {"Title 1","Title 2","Title 3","Title 4"};
+    String[] subTitle = {"SubTitle 1","SubTitle 2","SubTitle 3","SubTitle 4"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         listView = findViewById(R.id.listView);
 
-        String [] fruits = new String[]{"Jabuka","Jagoda","Lubenica"};
+        String [] fruits = new String[]{"Jabuka","Jagoda"};
         List<String> fruitsList = new ArrayList<String>(Arrays.asList(fruits));
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
@@ -52,40 +52,27 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fruitsList.add("Tresnja");
-                fruitsList.add("Visnja");
-                arrayAdapter.notifyDataSetChanged();
+                //fruitsList.add("Tresnja");
+                //fruitsList.add("Visnja");
+                //arrayAdapter.notifyDataSetChanged();
+                showAlertDialog();
             }
         });
     }
 
-    private void createCardViewProgrammatically() {
+    public void showAlertDialog(){
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("delete entry")
+                .setMessage("Are you sure")
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-        cardView = new CardView(this);
-        layoutParams = new RelativeLayout.LayoutParams
-                (ViewGroup.LayoutParams.WRAP_CONTENT
-                , ViewGroup.LayoutParams.WRAP_CONTENT);
-
-        cardView.setLayoutParams(layoutParams);
-        cardView.setRadius(15);
-        cardView.setPadding(25,25,25,25);
-        cardView.setCardBackgroundColor(Color.MAGENTA);
-        cardView.setMaxCardElevation(30);
-        cardView.setMaxCardElevation(6);
-
-        textView = new TextView(this);
-        textView.setLayoutParams(layoutParams);
-        textView.setText("CardView Programmatically");
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,25);
-        textView.setTextColor(Color.WHITE);
-        textView.setPadding(25,25,25,25);
-        textView.setGravity(Gravity.CENTER);
-
-        cardView.addView(textView);
-
-        relativeLayout.addView(cardView);
-
-
+                    }
+                })
+                .setNegativeButton(android.R.string.no,null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
 }
