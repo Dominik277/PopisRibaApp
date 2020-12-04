@@ -2,41 +2,46 @@ package izvjestaji.aplikacija;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-
+import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class MainActivity extends AppCompatActivity {
-
-    ListView listView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = findViewById(R.id.listView);
-        ArrayList<String> arrayList = new ArrayList<>();
+        ListView listView = findViewById(R.id.listView);
+        ArrayList<DataModel> dataModels = new ArrayList<>();
 
-        arrayList.add("Šaran");
-        arrayList.add("Amur");
-        arrayList.add("Som");
-        arrayList.add("Štuka");
-        arrayList.add("Smuđ");
-        arrayList.add("Babuška");
-        arrayList.add("Grgeč");
-        arrayList.add("Deverika");
-        arrayList.add("Tostolobik");
-        arrayList.add("Klen");
+        dataModels.add(new DataModel ("Šaran","Ribnjaci,rijeke"));
+        dataModels.add(new DataModel("Amur","Ribnjaci,rijeke"));
+        dataModels.add(new DataModel("Som","Ribnjaci,rijeke"));
+        dataModels.add(new DataModel("Babuska","Ribnjaci,rijeke"));
+        dataModels.add(new DataModel("Grgec","Ribnjaci,rijeke"));
+        dataModels.add(new DataModel("Štuka","Ribnjaci,rijeke"));
+        dataModels.add(new DataModel("Smuđ","Ribnjaci,rijeke"));
+        dataModels.add(new DataModel("Zubatac","More,oceani"));
+        dataModels.add(new DataModel("Klen","Rijeke"));
+        dataModels.add(new DataModel("Srdela","More"));
+        dataModels.add(new DataModel("Skuša","More"));
+        dataModels.add(new DataModel("Lubin","More"));
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,arrayList);
-        listView.setAdapter(arrayAdapter);
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(),dataModels);
+        listView.setAdapter(customAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DataModel dataModel = dataModels.get(position);
+                Snackbar.make(view,dataModel.getIme() + "\n" + dataModel.getPrebivaliste(),Snackbar.LENGTH_LONG)
+                        .setAction("No Action",null)
+                        .show();
+            }
+        });
     }
-
-
-
 }

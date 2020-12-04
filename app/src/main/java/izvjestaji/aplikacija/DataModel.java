@@ -2,47 +2,27 @@ package izvjestaji.aplikacija;
 
 public class DataModel {
 
-    String name;
-    String type;
-    String versionNumber;
-    String feature;
+    String ime;
+    String prebivaliste;
 
-    public DataModel(String name, String type, String versionNumber, String feature) {
-        this.name = name;
-        this.type = type;
-        this.versionNumber = versionNumber;
-        this.feature = feature;
+    public DataModel(String ime, String prebivaliste) {
+        this.ime = ime;
+        this.prebivaliste = prebivaliste;
     }
 
-    public String getName() {
-        return name;
+    public String getIme() {
+        return ime;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIme(String ime) {
+        this.ime = ime;
     }
 
-    public String getType() {
-        return type;
+    public String getPrebivaliste() {
+        return prebivaliste;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getVersionNumber() {
-        return versionNumber;
-    }
-
-    public void setVersionNumber(String versionNumber) {
-        this.versionNumber = versionNumber;
-    }
-
-    public String getFeature() {
-        return feature;
-    }
-
-    public void setFeature(String feature) {
-        this.feature = feature;
+    public void setPrebivaliste(String prebivaliste) {
+        this.prebivaliste = prebivaliste;
     }
 }
