@@ -37,18 +37,18 @@ public class MainActivity extends AppCompatActivity {
         //posto smo u DataModel klasi napravili custom konstruktor
         //DataModel(String ime,String prebivaliste) onda te vrijednosti u zagradi unosimo
         //kako bi inicijalizirali pojedine objekte koji se spremaju u obliku dataModels objekta
-        dataModels.add(new DataModel ("Šaran","Ribnjaci,rijeke",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Amur","Ribnjaci,rijeke",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Som","Ribnjaci,rijeke",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Babuska","Ribnjaci,rijeke",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Grgec","Ribnjaci,rijeke",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Štuka","Ribnjaci,rijeke",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Smuđ","Ribnjaci,rijeke",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Zubatac","More,oceani",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Klen","Rijeke",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Srdela","More",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Skuša","More",R.drawable.ic_launcher_background));
-        dataModels.add(new DataModel("Lubin","More",R.drawable.ic_launcher_background));
+        dataModels.add(new DataModel ("Šaran","Ribnjaci,rijeke",R.drawable.saran));
+        dataModels.add(new DataModel("Amur","Ribnjaci,rijeke",R.drawable.amur));
+        dataModels.add(new DataModel("Som","Ribnjaci,rijeke",R.drawable.som));
+        dataModels.add(new DataModel("Babuska","Ribnjaci,rijeke",R.drawable.babuska));
+        dataModels.add(new DataModel("Grgec","Ribnjaci,rijeke",R.drawable.grgec));
+        dataModels.add(new DataModel("Štuka","Ribnjaci,rijeke",R.drawable.stuka));
+        dataModels.add(new DataModel("Smuđ","Ribnjaci,rijeke",R.drawable.smud));
+        dataModels.add(new DataModel("Zubatac","More,oceani",R.drawable.zubatac));
+        dataModels.add(new DataModel("Klen","Rijeke",R.drawable.klen));
+        dataModels.add(new DataModel("Srdela","More",R.drawable.srdela));
+        dataModels.add(new DataModel("Skuša","More",R.drawable.skusa));
+        dataModels.add(new DataModel("Lubin","More",R.drawable.lubin));
 
 
         //customAdapter je referenca koja pokazuje na objekt u memoriji tipa CustomAdapter
