@@ -4,9 +4,11 @@ package izvjestaji.aplikacija;
 //parametrzirani konstruktor i gettere i setter
 public class DataModel {
 
-    //atribut modela nazvan ime
+    //atribut modela nazvan slika
+    private int slika;
+    //atribut modela nazvan ime koji u sebe sprema ime ribe
     private String ime;
-    //atribut modela nazvan prebivaliste
+    //atribut modela nazvan prebivaliste koji u sebe sprema mjesto prebivalista
     private String prebivaliste;
 
     //custom constructor sa atributima s kojima cemo
@@ -16,9 +18,10 @@ public class DataModel {
     //kada pravimo objekt napisemo njegov tip i referencu po kojoj cemo ga pozivati
     //new DataModel(...) ovaj dio onogućuje stvaranje objekta u memoriji i inicijalizira
     //objekt s argumentima koje unesemo u zagrade konstruktora
-    public DataModel(String ime, String prebivaliste) {
+    public DataModel(String ime, String prebivaliste,int slika) {
         this.ime = ime;
         this.prebivaliste = prebivaliste;
+        this.slika = slika;
     }
 
 
@@ -45,5 +48,14 @@ public class DataModel {
 
     public void setPrebivaliste(String prebivaliste) {
         this.prebivaliste = prebivaliste;
+    }
+
+
+    public int getSlika() {
+        return slika;
+    }
+
+    public void setSlika(int slika) {
+        this.slika = slika;
     }
 }

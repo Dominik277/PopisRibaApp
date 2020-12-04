@@ -14,8 +14,8 @@ import androidx.annotation.Nullable;
 
 public class CustomAdapter extends ArrayAdapter<DataModel> implements View.OnClickListener{
 
-    private ArrayList<DataModel> dataSet;
-    Context context;
+    private ArrayList<DataModel> dataSet = new ArrayList<>();
+    private Context context;
 
     //static klasa ViewHolder koja zbog toga sto je static ne mogu se
     //od nje pravit objekti, nego se atributima pristupa ImeKlase.atribut
@@ -62,33 +62,34 @@ public class CustomAdapter extends ArrayAdapter<DataModel> implements View.OnCli
 
     private int lastPosition = -1;
 
+
+    //ova metoda se poziva kada listItem treba biti napravljen
+    //i kada listItem treba biti popunjen podacima
+    //u ovoj metodi prvo je View "inflated" pomocu LayoutInflater.inflate()
+    //bitno nam je prokuziti je li view koji zelimo "inflatati" novi ili recikliran
+    //if(convertedView == null) onda view treba biti "inlatan"
+    //
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        //Get the data item for this position
-        DataModel dataModel = getItem(position);
-        //Check if an existing view is being reused,otherwise inflate the view
-        ViewHolder viewHolder;
 
-        final View result;
-
-        if (convertView == null){
-            viewHolder = new ViewHolder();
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.my_list,parent,false);
-            viewHolder.txtIme = (TextView) convertView.findViewById(R.id.ime);
-            viewHolder.txtPrebivaliste = (TextView)convertView.findViewById(R.id.prebivaliste);
-            viewHolder.slika = (ImageView)convertView.findViewById(R.id.slika);
-
-            result = convertView;
-            convertView.setTag(viewHolder);
-        }else {
-            viewHolder = (ViewHolder)convertView.getTag();
-            result = convertView;
+        View listItem = convertView;
+        if (listItem == null){
+            listItem = LayoutInflater.from(context).inflate(R.layout.my_list,parent,false);
         }
 
-        viewHolder.txtIme.setText(dataModel.getIme());
-        viewHolder.txtPrebivaliste.setText(dataModel.getPrebivaliste());
-        return convertView;
+        DataModel currentData = dataSet.get(position);
+
+        ImageView slika = listItem.findViewById(R.id.slika);
+        slika.setImageResource(currentData.getSlika());
+
+        TextView ime = listItem.findViewById(R.id.ime);
+        ime.setText(currentData.getIme());
+
+        TextView prebivaliste = listItem.findViewById(R.id.prebivaliste);
+        prebivaliste.setText(currentData.getPrebivaliste());
+
+        return listItem;
+
     }
 }
